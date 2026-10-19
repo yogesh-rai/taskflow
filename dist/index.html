@@ -3,12 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f6f8fc" />
+    <meta name="theme-color" content="#f5f7f5" />
     <title>TaskFlow — Stay in flow</title>
-    <script type="module" crossorigin src="/assets/index-DifJlVYl.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CJfAKbk8.css">
+    <script type="module" crossorigin src="/assets/index-G4vJDPUY.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Bk22kSLB.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      var systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      try {
+        var savedTheme = localStorage.getItem('taskflow-theme');
+        document.documentElement.dataset.theme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : systemTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = systemTheme;
+      }
+    </script>
   </body>
 </html>
