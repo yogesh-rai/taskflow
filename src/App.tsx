@@ -1,11 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { TaskForm } from './components/TaskForm'
 import { TaskList } from './components/TaskList'
 import { TaskStats } from './components/TaskStats'
-import { Task } from './types'
+import { usePersistentTasks } from './hooks/usePersistentTasks'
 
 export default function App() {
-  const [tasks, setTasks] = useState<Task[]>([])
+  const [tasks, setTasks] = usePersistentTasks()
   const stats = useMemo(() => ({ total: tasks.length, completed: tasks.filter((task) => task.completed).length, pending: tasks.filter((task) => !task.completed).length }), [tasks])
 
   function addTask(title: string, description: string) {
